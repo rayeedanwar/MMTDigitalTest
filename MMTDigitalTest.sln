@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMTDigitalTest", "MMTDigitalTest.csproj", "{B28810E1-E391-4EA9-8DDE-25000E6EDA2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMTDigitalTest", "MMTDigitalTest\MMTDigitalTest.csproj", "{B28810E1-E391-4EA9-8DDE-25000E6EDA2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SauceDemoInteractionLibrary", "SauceDemo\SauceDemoInteractionLibrary.csproj", "{78D120B7-E7AB-437B-AEBD-CDAD66D008A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B28810E1-E391-4EA9-8DDE-25000E6EDA2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B28810E1-E391-4EA9-8DDE-25000E6EDA2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B28810E1-E391-4EA9-8DDE-25000E6EDA2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D120B7-E7AB-437B-AEBD-CDAD66D008A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D120B7-E7AB-437B-AEBD-CDAD66D008A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D120B7-E7AB-437B-AEBD-CDAD66D008A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D120B7-E7AB-437B-AEBD-CDAD66D008A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
