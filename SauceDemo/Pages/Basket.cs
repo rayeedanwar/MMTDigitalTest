@@ -4,17 +4,19 @@ using SauceDemoInteractionLibrary.Components;
 
 namespace SauceDemoInteractionLibrary.Pages
 {
-    public class Inventory : BasePage
+    public class Basket : BasePage
     {
-        public IEnumerable<InventoryItem> InventoryItems { 
-            get {
-                return Utils.Helpers.ReturnInventoryItems(this, "//div[@class='inventory_item']");
-            } 
+        public IEnumerable<InventoryItem> CartItems
+        {
+            get
+            {
+                return Utils.Helpers.ReturnInventoryItems(this, "//div[@class='cart_item']");
+            }
         }
 
         public ShoppingCartIcon ShoppingCartIcon { get; }
 
-        public Inventory(IWebDriver driver) : base(driver)
+        public Basket(IWebDriver driver) : base(driver)
         {
             ShoppingCartIcon = new ShoppingCartIcon(this);
         }

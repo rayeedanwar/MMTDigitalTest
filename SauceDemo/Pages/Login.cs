@@ -11,7 +11,6 @@ namespace SauceDemoInteractionLibrary.Pages
 
         public Login(IWebDriver driver) : base(driver)
         {
-
         }
 
     }

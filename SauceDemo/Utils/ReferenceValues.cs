@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SauceDemoInteractionLibrary.Utils
+﻿namespace SauceDemoInteractionLibrary.Utils
 {
     public enum PageName
     {
         Login,
         Inventory,
+        Basket,
     }
 }

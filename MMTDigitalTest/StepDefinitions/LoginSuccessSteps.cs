@@ -1,5 +1,4 @@
-﻿using System;
-using SauceDemoInteractionLibrary;
+﻿using SauceDemoInteractionLibrary;
 using TechTalk.SpecFlow;
 using Xunit;
 
@@ -15,6 +14,7 @@ namespace MMTDigitalTest.StepDefinitions
             _sauceDemoApp = sauceDemoApp;
         }
 
+        [Given(@"I click “Log in” with (.*) and (.*)")]
         [When(@"I click “Log in” with (.*) and (.*)")]
         public void WhenIClickLogInWithOr(string userName, string password)
         {
@@ -32,7 +32,7 @@ namespace MMTDigitalTest.StepDefinitions
         [Then(@"it will successfully redirect me to (.*)")]
         public void ThenItWillSuccessfullyRedirectMeToInventory_Html(string urlEnding)
         {
-            Assert.True(_sauceDemoApp.Driver.Url.EndsWith(urlEnding));
+            Assert.EndsWith(urlEnding, _sauceDemoApp.Driver.Url);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace SauceDemoInteractionLibrary.Components
         public IWebElement Image { get { return _hostPage.Driver.FindElement(By.XPath(addIndex("//div[@class='inventory_item_img']"))); } }
         public IWebElement Name { get { return _hostPage.Driver.FindElement(By.XPath(addIndex("//div[@class='inventory_item_name']"))); } }
         public IWebElement Price { get { return _hostPage.Driver.FindElement(By.XPath(addIndex("//div[@class='inventory_item_price']"))); } }
-        public IWebElement Button { get { return _hostPage.Driver.FindElement(By.XPath(addIndex("//div[@class='pricebar']/button"))); } }
+        public IWebElement Button { get { return _hostPage.Driver.FindElement(By.XPath(addIndex("//div[contains(@class,'pricebar')]/button"))); } }
 
         public InventoryItem(BasePage page, int index)
         {

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using OpenQA.Selenium;
 using SauceDemoInteractionLibrary.Pages;
 using SauceDemoInteractionLibrary.Utils;
@@ -9,11 +10,13 @@ namespace SauceDemoInteractionLibrary
     {
         public Login LoginPage;
         public Inventory InventoryPage;
+        public Basket BasketPage;
 
         public SauceDemoApp(IWebDriver driver) : base(driver)
         {
             LoginPage = new Login(driver);
             InventoryPage = new Inventory(driver);
+            BasketPage = new Basket(driver);
         }
 
         public void NavigateTo(PageName pageNames)
@@ -21,7 +24,9 @@ namespace SauceDemoInteractionLibrary
             var url = pageNames switch
             {
                 PageName.Login => "https://www.saucedemo.com/",
-                PageName.Inventory => "https://www.saucedemo.com/inventory.html"
+                PageName.Inventory => "https://www.saucedemo.com/inventory.html",
+                PageName.Basket => "https://www.saucedemo.com/cart.html",
+                _ => throw new InvalidOperationException("PageName not recognised in test suite")
 
             };
                 
@@ -42,11 +47,16 @@ namespace SauceDemoInteractionLibrary
 
         public void AddInventoryItemToCart(string itemName)
         {
-            var matchingItem = InventoryPage.InventoryItems.Where(item => item.Name.Text == itemName).Single();
+            var matchingItem = itemName == "any" ?
+                InventoryPage.InventoryItems.First()
+                : InventoryPage.InventoryItems
+                    .Where(item => item.Name.Text == itemName)
+                    .Single();
 
             // exception below is more for the sake of completion and having the method do only one thing: add item to cart
-            // normally wouldn't validate like this unless required in specific usecases
+            // normally wouldn't validate like this in the application interaction library unless required in specific usecases
             // which means I would avoid putting in another method for removing item from cart
+            // and that assertions like this happen in the test suite only
 
             var expectedButtonText = "ADD TO CART";
             if (matchingItem.Button.Text != expectedButtonText)
@@ -57,7 +67,7 @@ namespace SauceDemoInteractionLibrary
 
         public void RemoveInventoryItemFromCart(string itemName)
         {
-            var matchingItem = InventoryPage.InventoryItems.Where(item => item.Name.Text == itemName).Single();
+            var matchingItem = InventoryPage.InventoryItems.Single(item => item.Name.Text == itemName);
 
             var expectedButtonText = "REMOVE";
             if (matchingItem.Button.Text != expectedButtonText)

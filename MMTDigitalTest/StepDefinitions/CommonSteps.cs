@@ -14,7 +14,8 @@ namespace MMTDigitalTest.StepDefinitions
             _sauceDemoApp = sauceDemoApp;
         }
 
-        [Given(@"that I am on the login page")]
+        [When(@"I am on the (.*) page")]
+        [Given(@"that I am on the (.*) page")]
         public void GivenThatIAmOnTheInventoryShopPageWithAnEmptyBasket(PageName pageName)
         {
             _sauceDemoApp.NavigateTo(pageName);
